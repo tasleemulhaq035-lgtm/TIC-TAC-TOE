@@ -66,6 +66,6 @@ jobs:
       - name: 📦 Save the APK for Download
         uses: actions/upload-artifact@v4
         with:
-          name: Fraction-Solver-App
+          name: TIC-TAC-TOE
           path: bin/*.apk
           retention-days: 30
