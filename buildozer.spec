@@ -10,7 +10,7 @@ package.name = tictactoe
 icon.filename = logo.png
 
 # (str) Package domain (needed for android/ios packaging)
-package.domain = org.fractionsolver
+package.domain = org.tictactoe
 
 # (str) Source code where the main.py lives
 source.dir = .
