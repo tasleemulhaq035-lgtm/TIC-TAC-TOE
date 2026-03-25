@@ -23,17 +23,14 @@ jobs:
           sudo apt update
           sudo apt install -y git zip unzip openjdk-17-jdk autoconf libtool pkg-config zlib1g-dev libncurses5-dev libncursesw5-dev libtinfo5 cmake libffi-dev libssl-dev
 
-      - name: Install Python Dependencies (THE BUG FIX)
+      - name: Install Python Dependencies (The Golden Cython Fix)
         run: |
-          # Pinning Cython to 0.29.33 fixes the Kivy crash!
           pip install --user buildozer Cython==0.29.33 virtualenv
 
-      - name: Build with Buildozer
-        # Using the community-maintained action that handles licenses perfectly
-        uses: OzakIOne/buildozer-action@v2
-        with:
-          command: buildozer android debug
-          buildozer_version: master
+      - name: Build with Buildozer (Raw Execution)
+        run: |
+          export PATH=$PATH:~/.local/bin
+          yes | buildozer android debug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
